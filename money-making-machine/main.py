@@ -24,7 +24,8 @@ if st.button("Generate Money"):
 #fetech data for get side_hustle:
 def fetch_side_hustle():
     try:
-        response = requests.get("https://api.adviceslip.com/advice")
+        api_key = st.secrets['1234567890']
+        response = requests.get("http://127.0.0.1:8000/side_hustles?apikey={api_key}")
         if response.status_code == 200:
             hustles = response.json()
             return hustles['side_hustle']
@@ -42,7 +43,8 @@ if st.button("Genetrate Hustle"):
 #fetch data to get money quotes:
 def fetch_money_quotes():
     try:
-        response = requests.get('https://api.quotable.io/random')
+        api_key = st.secrets['1234567890']
+        response = requests.get('http://127.0.0.1:8000/money_quotes?apikey={api_key}')
         if response.status_code == 200:
             quotes = response.json()
             return quotes["moneyquote"]
