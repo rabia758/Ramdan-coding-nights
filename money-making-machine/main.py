@@ -24,17 +24,15 @@ if st.button("Generate Money"):
 #fetech data for get side_hustle:
 def fetch_side_hustle():
     try:
-        api_key = st.secrets['1234567890']
-        response = requests.get("http://127.0.0.1:8000/side_hustles?apikey={api_key}")
+        response = requests.get("https://api.adviceslip.com/advice")
         if response.status_code == 200:
-            hustles = response.json()
-            return hustles['side_hustle']
+            advice = response.json()
+            return advice["slip"]["advice"]
         else:
-            return("No side hustle available")
-
-    except:
-        return("SomeThing went wrong ❌") 
-
+            return "No side hustle available"
+    except Exception as e:
+        return f"Something went wrong ❌: {e}"
+    
 st.subheader("side hustles ideas")
 if st.button("Genetrate Hustle"):
     idea = fetch_side_hustle()
@@ -43,16 +41,14 @@ if st.button("Genetrate Hustle"):
 #fetch data to get money quotes:
 def fetch_money_quotes():
     try:
-        api_key = st.secrets['1234567890']
-        response = requests.get('http://127.0.0.1:8000/money_quotes?apikey={api_key}')
+        response = requests.get("https://stoic-quotes.com/api/quote")
         if response.status_code == 200:
-            quotes = response.json()
-            return quotes["moneyquote"]
+            quote = response.json()
+            return quote['text']
         else:
-            return("Money Quotes Not Found!")
-
-    except:
-        return("Something went wrong ")
+            return "Money Quotes Not Found!"
+    except Exception as e:
+        return f"Something went wrong: {e}"
 
 st.subheader("Money Making Motivation")
 if st.button("Generate Money Quotes!"):
