@@ -1,0 +1,24 @@
+chainlit: 2.0.0
+
+ui:
+   name: "Auth Chatbot"
+   description: "Auth Chatbot is a simple chatbot powered by google's Gemini model."
+
+defauld_expand_messages: true
+
+auth:
+   required: true
+   providers:
+      - github
+  
+oauth_providers:
+    github:
+      client_id: ${OAUTH_GITHUB_CLIENT_ID}
+      client_secret: ${OAUTH_GITHUB_CLIENT_SECRET}
+
+
+
+
+
+
+

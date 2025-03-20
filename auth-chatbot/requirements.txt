@@ -1,0 +1,7 @@
+chainlit
+google-generativeai
+python-dotenv
+python-github-auth
+chainlit-oauth
+chainlit-oauth-github
+
